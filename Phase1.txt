@@ -1,0 +1,164 @@
+
+
+
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+string studentName;
+string major1;
+string major2;
+string major;
+string first;
+string last; 
+string studentID;
+
+int class1;
+int class2;
+int class3;
+int class4;
+int class5;
+
+string course1;
+string course2;
+string course3;
+string course4;
+string course5;
+
+void Instructions()
+{
+    cout << "Welcome to the schedule generator, there are a few rules to follow: \n";
+    cout << "1. When entering course number, only numbers 1000-1099 are allowed. \n";
+    cout << "2. Use a space between first and last name and if major is two words. \n";
+    cout << "\n";
+}
+
+const int LINELENGTH = 80;
+string header( LINELENGTH, '=' );
+
+
+enum Position{ LEFT, CENTER, RIGHT };            
+void print( Position pos, string s, int linelength )
+{
+   int spaces = 0;
+   switch( pos )
+   {
+      case CENTER: spaces = ( linelength - s.size() ) / 2; break;
+      case RIGHT : spaces =   linelength - s.size()      ; break;
+   }
+   if ( spaces > 0 ) cout << string( spaces, ' ' );
+   cout << s << '\n';
+      
+}
+
+void FirstPage()
+{
+   cout << "Enter your student ID number (9 digits):   ";
+   cin >> studentID;
+   cout << "Enter your first and last name:   ";
+   cin >> first >> last;
+   studentName = first + " " + last;
+   cout << "Enter your major:   ";
+   cin >> major1 >> major2;
+   major = major1 + " " + major2;
+   cout << header << '\n';
+   print( CENTER  , "Jacksonville State University"  , LINELENGTH );
+   print( CENTER , "Spring 2020" , LINELENGTH );
+   print( CENTER  , "CS 231"  , LINELENGTH );
+   print( CENTER , studentName , LINELENGTH );
+   cout << header << '\n';
+}
+
+void SecondPage()
+{
+    cout << '\n';
+    cout << header << '\n';
+    cout << '\n';
+    cout << ("Student ID:  " + studentID + "      " + "Student Major:  " + major);
+    cout << '\n';
+    cout << ("Student First Name:  " + first + "       "+ "Student Last Name:  " + last);
+    cout << '\n';
+    cout << header << '\n';
+    cout << '\n';
+    
+    int classInt = 0;
+    string numClasses = to_string(classInt);
+    cout << "How many classes will you be taking?   ";
+    cin >> classInt;
+    int x = 0;
+    if (classInt != x, classInt <6)
+    {
+        cout << ("Enter course number of first class:  ");
+        cin >> class1;
+        x = x + 1;
+        if (classInt != x)
+        {
+            cout << "Enter course number of second class:  ";
+            cin >> class2;
+            x = x + 1;
+        }
+            
+        if (classInt != x)
+        {
+            cout << "Enter course number of third class:  ";
+            cin >> class3;
+            x = x + 1;
+        }
+        
+        if (classInt != x)
+        {
+            cout << "Enter course number of fourth class:  ";
+            cin >> class4;
+            x = x + 1;
+        }
+        
+        if (classInt != x)
+        {
+            cout << "Enter course number of last class:  ";
+            cin >> class5;
+        }
+    }
+    cout << "\n";
+    cout << header;
+    cout << "\n";
+}   
+    
+void ThirdPage()
+{
+    cout << header << "\n";
+    print( CENTER , "Jacksonville State University" , LINELENGTH);
+    print( CENTER , "Spring Semester 2020" , LINELENGTH);
+    print( CENTER ,  "Class Schedule" , LINELENGTH);
+    cout << "\n";
+    
+    string date = "Date: Dec. 6, 2019   ";
+    cout << date; print( CENTER, "Advisor: Dr. Elliott" , LINELENGTH);
+    cout << ("Student ID: " + studentID); print( CENTER , "Major: " + major , LINELENGTH);
+    cout << ("Student Name: " + studentName);
+    cout << "\n";
+    cout << "\n";
+    cout << ("Course 1: " + course1) << endl;
+    cout << "\n";
+    cout << ("Course 2: " + course2) << endl;
+    cout << "\n";
+    cout << ("Course 3: " + course3) << endl;
+    cout << "\n";
+    cout << ("Course 4: " + course4) << endl;
+    cout << "\n";
+    cout << ("Course 5: " + course5) << endl;
+    
+    
+}
+
+
+int main()
+    {
+    Instructions();
+    FirstPage();
+    cout << "\n";
+    print( CENTER , "COURSE ENROLLMENT SIMULATION" , LINELENGTH );
+    SecondPage();
+    ThirdPage();
+    }
