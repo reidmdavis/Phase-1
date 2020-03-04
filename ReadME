@@ -1,0 +1,12 @@
+This is the ReadME file for phase 1 of my registration simulator.
+All of the variables are named and initialized first so that they are easier to track later in the program, 
+  as the program has six functions including the MAIN.
+
+The first function is the instructions function and will print all of the neccessary instructions to the user's screen.
+The second function (print) creates the template for the formatting of the final output.
+Third function (FirstPage) collects from the user all of the pertinent data to be displayed on the first page, any overflow or overlapping 
+  data is stored to be used later if needed.
+The fourth and fifth functions behave similarly to the FirstPage funciton but they are collecting data for the second 
+  and third pages respectfully.
+C-IN is the most used tool for gathering data from the user and then the data is printed using C-OUT and formatted to fit the user's screen.
+Then the main function controls the calling of the other functions to simplify the code and keep the main function as clean as possible.
